@@ -47,6 +47,14 @@
     <?= $template->draw('shell/aftercontainer') ?>
     <?= $template->draw('shell/contentfooter') ?>
 
+
+<p style="text-align:center; color: #fff; margin-top: 4rem">
+  <a style="color: #fff" href="https://xn--sr8hvo.ws/🛁/previous">←</a>
+  An IndieWeb Webring 🕸💍
+  <a style="color: #fff" href="https://xn--sr8hvo.ws/🛁/next">→</a>
+</p>
+
+
 <?php
 
     echo $template->draw('shell/assets');
