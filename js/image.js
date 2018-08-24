@@ -3,14 +3,12 @@
  * 
  * IMPORTANT:
  * This file isn't loaded directly, for changes to show you must generate a minified
- * version. E.g.
- *
- *   yui-compressor image.js > image.min.js
+ * version by executing the Gruntfile. See: http://docs.withknown.com/en/latest/developers/build/
  */
 
 "use strict";
 
-function ImageTools() {}
+var ImageTools = ImageTools || {};
 
 /**
  * Convert base 64 encoded data into an array/image buffer.
@@ -25,7 +23,7 @@ ImageTools.base64ToArrayBuffer = function(base64) {
 	bytes[i] = binaryString.charCodeAt(i);
     }
     return bytes.buffer;
-}
+};
 
 /**
  * Wrapper.
@@ -45,6 +43,7 @@ ImageTools.exifRotateImg = function(imgid, exif_orientation, containerdiv) {
     
     var h = $(imgid).height();
     var w = $(imgid).width();
+    var angle;
     
     if (w == 0) w = 300;
     if (h == 0) h = 200;
@@ -52,7 +51,7 @@ ImageTools.exifRotateImg = function(imgid, exif_orientation, containerdiv) {
     switch(exif_orientation){
 
 	case 8:
-	    var angle = -90;
+	    angle = -90;
 	    
 	    $(imgid).css('transform-origin', '0 0');
 	    $(imgid).css('transform', 'rotate(' + angle + 'deg)');
@@ -62,12 +61,12 @@ ImageTools.exifRotateImg = function(imgid, exif_orientation, containerdiv) {
 	    $(containerdiv).css("height",w+"px");
 	    break;
 	case 3:
-	    var angle = 180;
+	    angle = 180;
 	    $(imgid).css('transform-origin', '0 0');
 	    $(imgid).css('transform', 'rotate(' + angle + 'deg)');
 	    break;
 	case 6:
-	    var angle = 90;
+	    angle = 90;
 	    $(imgid).css('transform-origin', '0 0');
 	    $(imgid).css('margin-left', '100%');
 	    $(imgid).css('transform', 'rotate(' + angle + 'deg)');
@@ -76,10 +75,10 @@ ImageTools.exifRotateImg = function(imgid, exif_orientation, containerdiv) {
 	    $(containerdiv).css("height",w+"px");
 	    break;
      }
-}
+};
 
 /**
  * Wrapper.
- * @@description Use Image.exifRotateImg
+ * @description Use Image.exifRotateImg
  */
 function exifRotateImg(imgid, exif_orientation, containerdiv) { ImageTools.exifRotateImg(imgid, exif_orientation, containerdiv); }

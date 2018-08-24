@@ -5,9 +5,7 @@
  and reference them from a custom plugin or template.
  
  IMPORTANT: This file isn't loaded directly, for changes to show you must generate a minified
- version. E.g.
- 
- yui-compressor default.js > default.min.js
+ version by executing the Gruntfile. See: http://docs.withknown.com/en/latest/developers/build/
  
  @package idno
  @subpackage core
@@ -16,13 +14,26 @@
 "use strict";
 
 /** Known security object */
-function Security() {}
+var Security = Security || {};
+
+/** Cached tokens */
+Security.tokens = [];
 
 /** Perform a HEAD request on the current page and pass the token to a given callback */
 Security.getCSRFToken = function (callback, pageurl) {
 
     if (pageurl == undefined)
 	pageurl = known.currentPageUrl;
+    
+    var time = Math.floor(Date.now() / 1000);
+    
+    for (var i = 0; i < Security.tokens.length; i ++) {
+	if ((Security.tokens[i].url == pageurl) && (Security.tokens[i].time > time - 100)) {
+	    console.log('Returning cached token for ' + pageurl);
+	    
+	    callback(Security.tokens[i].token, Security.tokens[i].time);
+	}
+    }
 
     $.ajax({
 	type: "GET",
@@ -30,10 +41,15 @@ Security.getCSRFToken = function (callback, pageurl) {
 	url: known.config.displayUrl + 'service/security/csrftoken/'
     }).done(function (message, text, jqXHR) {
 
+	Security.tokens.push({
+	    token: message.token,
+	    time: message.time,
+	    url: pageurl
+	});
 
 	callback(message.token, message.time);
     });
-}
+};
 
 /** Refresh all security tokens */
 Security.refreshTokens = function () {
@@ -48,7 +64,7 @@ Security.refreshTokens = function () {
 
 	}, form.find('input[name=__bTa]').val());
     });
-}
+};
 
 setInterval(function () {
     Security.refreshTokens();
@@ -68,7 +84,7 @@ Security.activateACLControls = function () {
 	$(this).closest('.btn-group').find('.dropdown-toggle').html($(this).html() + ' <span class="caret"></span>');
 	$(this).closest('.btn-group').find('.dropdown-toggle').click();
     });
-}
+};
 
 $(document).ready(function () {
     Security.activateACLControls();
@@ -76,7 +92,7 @@ $(document).ready(function () {
 
 
 /** Known Javascript logging */
-function Logger() {}
+var Logger = Logger || {};
 
 Logger.log = function (message, level) {
 
@@ -115,23 +131,23 @@ Logger.log = function (message, level) {
 	});
     }, known.config.displayUrl + 'service/system/log/');
 
-}
+};
 
 Logger.info = function(message) {
     Logger.log(message, 'INFO');
-}
+};
 
 Logger.warn = function(message) {
     Logger.log(message, 'WARN');
-}
+};
 
 Logger.error = function(message) {
     Logger.log(message, 'ERROR');
-}
+};
 
 Logger.deprecated = function(message) {
     Logger.info('DEPRECATED ' + message);
-}
+};
 
 Logger.errorHandler = function (error) {
 
@@ -144,14 +160,14 @@ Logger.errorHandler = function (error) {
 
     console.error(error);
     Logger.log(message, 'ERROR');
-}
+};
 
 /** Default error/exception handler */
 window.addEventListener('error', function (e) { Logger.errorHandler(e); });
 
 
 /** Known notifications */
-function Notifications() {}
+var Notifications = Notifications || {};
 
 /**
  * Poll for new notifications
@@ -163,7 +179,7 @@ Notifications.poll = function () {
 		//console.log(data);
 		if (data.notifications)
 		    if (data.notifications.length > 0) {
-			for (i = 0; i < data.notifications.length; i++) {
+			for (var i = 0; i < data.notifications.length; i++) {
 			    var title = data.notifications[i].title;
 			    var body = data.notifications[i].body;
 			    var icon = data.notifications[i].icon;
@@ -176,7 +192,7 @@ Notifications.poll = function () {
 				});
 				notification.onclick = function(e) {
 				    window.location.href = link;
-				}
+				};
 			    } catch (e) {
 				// We have to use service worker, as New doesn't work
 				
@@ -188,7 +204,7 @@ Notifications.poll = function () {
 	    .fail(function (data) {
 		//console.log("Polling for new notifications failed");
 	    });
-}
+};
 
 Notifications.enable = function (opt_dontAsk) {
     if (!known.session.loggedIn) {
@@ -215,7 +231,7 @@ Notifications.enable = function (opt_dontAsk) {
     } else if (Notification.permission === 'granted') {
 	setInterval(Notifications.poll, 30000);
     }
-}
+};
 
 /**
  * Have notifications been granted?
@@ -235,7 +251,7 @@ Notifications.isEnabled = function () {
     }
 
     return false;
-}
+};
 
 // Backwards compatibility for those who already have notifications installed
 function doPoll() {

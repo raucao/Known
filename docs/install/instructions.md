@@ -1,6 +1,6 @@
 # Installation instructions
 
-##Before you begin
+## Before you begin
 
 If you’re running Known in production, we highly recommend that you download the installation package from [withknown.com](https://withknown.com).
 
@@ -17,11 +17,15 @@ You can place the platform on your web host by:
 + Downloading the latest package from [the Known homepage](https://withknown.com/). This is by far the easiest option. If you’ve uploaded the files inside the archive to your web host, you can skip to the configuration section of these documents, below.
 * If you have more control over your server, you can also use Git to clone the code from [our repository](https://github.com/idno/known). Git is a technical source code management system that is out of scope for this guide, so if in doubt, use point one.
 
+### Alternative Packages
+
+If you want to run the (almost) latest and greatest code, but aren't able to track github, you may opt to use one of the [unofficial Known installation packages](https://www.marcus-povey.co.uk/known/). These packages are built from github, and often contain newer features than in the official release.
+
 ## Configure Known
 
 ### Use the automatic installer
 
-If you’re using a MySQL back-end, you can get started by pointing your browser at your Known site address. If you want to use MongoDB (or another database backend), you’ll need to create the configuration file manually, as described below.
+If you’re using a MySQL back-end, you can get started by pointing your browser at your Known site address. If you want to use MongoDB (or another database backend), you’ll need to create the configuration file manually, as described below, or use the CLI installer.
 
 ### Use environment variables
 

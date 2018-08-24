@@ -2,14 +2,12 @@
  * Embedding code for various platforms
  * IMPORTANT:
  * This file isn't loaded directly, for changes to show you must generate a minified
- * version. E.g.
- *
- *   yui-compressor embeds.js > embeds.min.js
+ * version by executing the Gruntfile. See: http://docs.withknown.com/en/latest/developers/build/
  */
 
 "use strict";
 
-function Unfurl() {}
+var Unfurl = Unfurl || {};
 
 /**
  * Attempt to unfurl a url, extracting, title, open graph and oembed information
@@ -33,7 +31,7 @@ Unfurl.fetch = function (url, callback) {
 	    );
 	}, known.config.displayUrl + 'service/web/unfurl/');
     }
-}
+};
 
 /**
  * Extract all urls in the text.
@@ -45,7 +43,7 @@ Unfurl.getUrls = function (text) {
     var urlRegex = new RegExp('(https?:\/\/[^\\s]+)', "gi");
 
     return text.match(urlRegex);
-}
+};
 
 /**
  * Find the first url in the text.
@@ -55,12 +53,12 @@ Unfurl.getUrls = function (text) {
 Unfurl.getFirstUrl = function (text) {
 
     var urls = Unfurl.getUrls(text);
-console.log(urls);
+
     if ((urls != undefined) && (urls.length > 0))
 	return urls[0];
     
     return '';
-}
+};
 
 /**
  * Initialise any oembeds found in a specific control.
@@ -106,7 +104,7 @@ Unfurl.initOembed = function (control) {
 	    );
 	}
     }
-}
+};
 
 /**
  * 
@@ -164,7 +162,7 @@ Unfurl.enableControls = function (control) {
 	
 	e.preventDefault();
     });
-}
+};
 
 /**
  * Unfurl a specific embedded control
@@ -183,14 +181,14 @@ Unfurl.unfurl = function (control) {
 	   Unfurl.enableControls(control);
 	});
     }
-}
+};
 
 
 Unfurl.unfurlAll = function () {
     $('div.unfurl').each(function () {
 	Unfurl.unfurl($(this));
     });
-}
+};
 
 $(document).ready(function () {
     Unfurl.unfurlAll();

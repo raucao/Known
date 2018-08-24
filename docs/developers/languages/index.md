@@ -39,10 +39,14 @@ Known also now supports [gettext](https://en.wikipedia.org/wiki/Gettext), which 
 The first step, after you've used ```\Idno\Core\Idno::site()->language()->_()``` to write your strings, is to generate a POT template translation file. To do this, in ```/languages/``` there's a helpful script, go into this directory and run the script
 
 ```
-./makepot.sh /path/to/your/plugin > /path/to/your/plugin/languages/
+./makepot.sh /path/to/your/plugin > /path/to/your/plugin/languages/language.pot
 ```
 
 This will parse all your plugin's PHP files and extract translatable strings.
+
+!!! note "Note"
+    If you have added a new translation string to Known's core code or templates, you should use the Grunt ```build-lang``` task to update the ```known.pot``` file.
+
 
 ### Creating your translation
 

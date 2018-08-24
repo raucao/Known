@@ -3,14 +3,12 @@
  * 
  * IMPORTANT:
  * This file isn't loaded directly, for changes to show you must generate a minified
- * version. E.g.
- *
- *   yui-compressor shell.js > shell.min.js
+ * version by executing the Gruntfile. See: http://docs.withknown.com/en/latest/developers/build/
  */
 
 "use strict";
 
-function Template() {}
+var Template = Template || {};
 
 /**
  * Add a notice info
@@ -30,7 +28,7 @@ Template.addMessage = function(message, message_type)
 			    '<button type="button" class="close" data-dismiss="alert">&times;</button>' +
 			    message + '</div>');
     }
-}
+};
 
 
 /**
@@ -38,7 +36,7 @@ Template.addMessage = function(message, message_type)
  * @param {type} message
  * @returns {undefined}
  */
-Template.addErrorMessage = function(message) { Template.addMessage(message, 'alert-danger'); }
+Template.addErrorMessage = function(message) { Template.addMessage(message, 'alert-danger'); };
 
 
 function addMessage(message, message_type) { Template.addMessage(message); }
@@ -72,7 +70,7 @@ Template.activateStarToggle = function() {
 	    });
 	});
     });
-}
+};
 
 
 /** Enable some form candy, like ctrl+enter submit */
@@ -87,7 +85,7 @@ Template.enableFormCandy = function() {
 	}
     });
     
-}
+};
 
 /** Enable AJAX powered pagination */
 Template.enablePagination = function() {
@@ -146,7 +144,7 @@ Template.enablePagination = function() {
 	}); 
 	
     });
-}
+};
 
 /**
  * Enable html5 like "required" support for rich text input controls.
@@ -174,7 +172,7 @@ Template.enableRichTextRequired = function () {
 	});
 	
     });
-}
+};
 
 /**
  * Enable fallback image for broken images.
@@ -184,7 +182,7 @@ Template.enableImageFallback = function () {
 	console.error("Loading fallback image " + known.config.displayUrl + 'gfx/users/default.png');
         $(this).attr('src', known.config.displayUrl + 'gfx/users/default.png');
     });
-}
+};
 
 /**
  * Enable image preview on image file controls.
@@ -215,11 +213,11 @@ Template.activateImagePreview = function (input) {
 	    
 	    img.attr('src', e.target.result);
 	    img.show();
-	}
+	};
 
 	reader.readAsDataURL(input.files[0]);
     }
-}
+};
 
 
 /**
@@ -262,7 +260,7 @@ Template.autoSave = function (context, elements, selectors) {
 	    );
 	}
     }, 10000);
-}
+};
 
 /**
  *** Content creation
@@ -284,7 +282,7 @@ Template.bindControls = function() {
     
     // Candy: set focus to first entry on a form.
     $('#contentCreate .form-control').first().focus();
-}
+};
 
 function bindControls() {
     Template.bindControls();
@@ -313,7 +311,7 @@ Template.initContentCreateForm = function(plugin, editUrl) {
 	}
 
     });
-}
+};
 
 function contentCreateForm(plugin, editUrl) {
     Template.initContentCreateForm(plugin, editUrl);
@@ -330,7 +328,7 @@ Template.hideContentCreateForm = function() {
 	    window.history.back();
 	}
     }
-}
+};
 
 function hideContentCreateForm() {
     Template.hideContentCreateForm();
