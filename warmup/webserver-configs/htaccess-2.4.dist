@@ -1,4 +1,4 @@
-# Known .htaccess file
+## BEGIN Known Webserver Config (don't remove)
 
 <IfModule mod_rewrite.c>
     RewriteEngine on
@@ -28,6 +28,15 @@
 <Files ~ "composer\.lock">
   Require all denied
 </Files>
+<Files ~ "composer\.json">
+  Require all denied
+</Files>
+<Files ~ "package\.json">
+  Require all denied
+</Files>
+<Files ~ "Gruntfile\.js">
+  Require all denied
+</Files>
 <Files ~ "known\.php">
   Require all denied
 </Files>
@@ -41,6 +50,9 @@
   Require all denied
 </Files>
 <Files ~ "\.xml$">
+  Require all denied
+</Files>
+<Files ~ "\.bak$">
   Require all denied
 </Files>
 <Files ~ "sitemap\.xml">
@@ -65,3 +77,5 @@
 AddType video/ogg .ogv
 AddType video/mp4 .mp4
 AddType video/webm .webm
+
+## END Known Webserver Config (don't remove)

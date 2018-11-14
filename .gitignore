@@ -9,6 +9,8 @@ Idno/.idea/.name
 node_modules
 
 *.iml
+*.bak
+test.php
 
 /nbproject/private/nbproject/project.xml
 /nbproject/project.properties
@@ -33,9 +35,7 @@ IdnoPlugins/*
 !IdnoPlugins/APITester/
 !IdnoPlugins/Bridgy/
 !IdnoPlugins/Checkin/
-!IdnoPlugins/Comic/
 !IdnoPlugins/Comments/
-!IdnoPlugins/Convoy/
 !IdnoPlugins/Event/
 !IdnoPlugins/Firefox/
 !IdnoPlugins/FooterJS/

@@ -5,7 +5,10 @@ we welcome contributions. See [the open source community](../community/index.md)
 
 ## Notes on development
 
+* [Building Known](build.md)
 * [Coding standards](standards.md)
+* [Commit messages](commit-messages.md)
+* [Submitting a pull request](pull-requests.md)
 
 ## Known components
 

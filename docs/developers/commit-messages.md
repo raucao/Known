@@ -1,3 +1,5 @@
+# Commit Messages
+
 Commit messages are pretty much the primary mechanism that developers communicate to each other, and so the goal of your message should be to communicate your changes, and to help those attempting to debug your code.
 
 ## Give a subject line

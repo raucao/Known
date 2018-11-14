@@ -1,3 +1,4 @@
+# Coding Standards
 
 ## The basics
 
@@ -42,7 +43,7 @@ switch ($var) {
 ## Error handling
 
 * Notice errors are errors, please develop your code with ```pedantic_mode = true;``` set in your config.ini
-* Unless there's a VERY good reason you can explain, never use the '@' error suppression operator.
+* Unless there's a VERY good reason you can explain (and should explain) in comments, never use the '@' error suppression operator.
 
 ## Comments
 
@@ -51,9 +52,9 @@ we'd like to know your thought process behind what you wrote, and why you did so
 
 This will help future developers, maybe even you, so be kind to your future self!
 
-### PHP doc blocks:
+### phpDocumentor blocks
 
-Use PHP doc blocks for every method, *except* inherited methods, where they are optional. Use your best judgment here.
+Use [phpDocumentor blocks](http://docs.phpdoc.org/references/phpdoc/basic-syntax.html) for every method, *except* inherited methods, where they are optional. Use your best judgment here.
 
 * Explain the purpose of the method or class as clearly as you can. For example, "loads ClassName by property_name" is bad; 
   "loads objects that have a property called property_name" is much better.
@@ -61,8 +62,13 @@ Use PHP doc blocks for every method, *except* inherited methods, where they are 
 * "Just read the code" isn't a good idea, and we don't like it.
 * That said, clear, simple code is good :)
 
+## PHP Files
+
+* Use Unix line endings
+* End your file with a single blank line
+* You should never end your .php file with ```?>```, as this leads to fragile code.
+
 ## PHP tags
 
 * Open your PHP blocks with ```<?php```, and close with ```?>```
 * Shorthand ```<?=``` is ok in templates
-* You should never end your .php file with ```?>```, as this leads to fragile code.

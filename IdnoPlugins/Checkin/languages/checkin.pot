@@ -1,40 +1,64 @@
-#: ../IdnoPlugins/Checkin/templates/default/entity/Checkin/edit.tpl.php:7
-msgid "New Location"
+#: ./Pages/Delete.php:18
+msgid "You don't have permission to perform this task."
 msgstr ""
 
-#: ../IdnoPlugins/Checkin/templates/default/entity/Checkin/edit.tpl.php:9
-msgid "Edit Location"
+#: ./Pages/Delete.php:23
+msgid "Your checkin was deleted."
 msgstr ""
 
-#: ../IdnoPlugins/Checkin/templates/default/entity/Checkin/edit.tpl.php:12
-msgid "Hang tight ... searching for your location."
+#: ./Pages/Delete.php:25
+msgid "We couldn't delete %s."
 msgstr ""
 
-#: ../IdnoPlugins/Checkin/templates/default/entity/Checkin/edit.tpl.php:12
-msgid "Location"
-msgstr ""
-
-#: ../IdnoPlugins/Checkin/templates/default/entity/Checkin/edit.tpl.php:12
+#: ./Pages/Edit.php:32
 msgid "Where are you?"
 msgstr ""
 
-#: ../IdnoPlugins/Checkin/templates/default/entity/Checkin/edit.tpl.php:12
+#: ./Pages/Edit.php:34
+msgid "Edit checkin"
+msgstr ""
+
+#: ./templates/default/entity/Checkin/edit.tpl.php:10
+msgid "New Location"
+msgstr ""
+
+#: ./templates/default/entity/Checkin/edit.tpl.php:12
+msgid "Edit Location"
+msgstr ""
+
+#: ./templates/default/entity/Checkin/edit.tpl.php:18
+msgid "Hang tight ... searching for your location."
+msgstr ""
+
+#: ./templates/default/entity/Checkin/edit.tpl.php:34
+msgid "Location"
+msgstr ""
+
+#: ./templates/default/entity/Checkin/edit.tpl.php:53
 msgid "Address"
 msgstr ""
 
-#: ../IdnoPlugins/Checkin/templates/default/entity/Checkin/edit.tpl.php:12
+#: ./templates/default/entity/Checkin/edit.tpl.php:54
 msgid "You can edit the address if it's wrong."
 msgstr ""
 
-#: ../IdnoPlugins/Checkin/templates/default/entity/Checkin/edit.tpl.php:12
+#: ./templates/default/entity/Checkin/edit.tpl.php:77
 msgid "Description"
 msgstr ""
 
-#: ../IdnoPlugins/Checkin/templates/default/entity/Checkin/edit.tpl.php:12
+#: ./templates/default/entity/Checkin/edit.tpl.php:89
 msgid "Publish"
 msgstr ""
 
-#: ../IdnoPlugins/Checkin/templates/default/entity/Checkin/edit.tpl.php:12
+#: ./templates/default/entity/Checkin/edit.tpl.php:91
 msgid "Save"
+msgstr ""
+
+#: ./Checkin.php:72
+msgid "Checked into %s"
+msgstr ""
+
+#: ./Checkin.php:85
+msgid "You can\'t save an empty checkin."
 msgstr ""
 

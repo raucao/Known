@@ -1,1 +1,0 @@
-<li <?php if ($_SERVER['REQUEST_URI'] == '/admin/apitester/') echo 'class="active"'; ?>><a href="<?=\Idno\Core\Idno::site()->config()->getDisplayURL()?>admin/apitester/"><?= \Idno\Core\Idno::site()->language()->_('API Tester'); ?></a></li>

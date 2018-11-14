@@ -1,4 +1,4 @@
-# Known .htaccess file
+## BEGIN Known Webserver Config (don't remove)
 
 <IfModule mod_rewrite.c>
     RewriteEngine on
@@ -30,6 +30,18 @@
   Order allow,deny
   Deny from all
 </Files>
+<Files ~ "composer\.json">
+  Order allow,deny
+  Deny from all
+</Files>
+<Files ~ "package\.json">
+  Order allow,deny
+  Deny from all
+</Files>
+<Files ~ "Gruntfile\.js">
+  Order allow,deny
+  Deny from all
+</Files>
 <Files ~ "known\.php">
   Order allow,deny
   Deny from all
@@ -47,6 +59,10 @@
   Deny from all
 </Files>
 <Files ~ "\.xml$">
+  Order allow,deny
+  Deny from all
+</Files>
+<Files ~ "\.bak$">
   Order allow,deny
   Deny from all
 </Files>
@@ -78,3 +94,5 @@
 AddType video/ogg .ogv
 AddType video/mp4 .mp4
 AddType video/webm .webm
+
+## END Known Webserver Config (don't remove)

@@ -1,20 +1,20 @@
-#: ../IdnoPlugins/Comments/templates/default/comments/public/form.tpl.php:4
+#: ./templates/default/comments/public/form.tpl.php:15
 msgid "Your name"
 msgstr ""
 
-#: ../IdnoPlugins/Comments/templates/default/comments/public/form.tpl.php:4
+#: ./templates/default/comments/public/form.tpl.php:18
 msgid "Your website address"
 msgstr ""
 
-#: ../IdnoPlugins/Comments/templates/default/comments/public/form.tpl.php:4
+#: ./templates/default/comments/public/form.tpl.php:21
 msgid "You probably shouldn't fill this in"
 msgstr ""
 
-#: ../IdnoPlugins/Comments/templates/default/comments/public/form.tpl.php:4
+#: ./templates/default/comments/public/form.tpl.php:25
 msgid "Add a comment ..."
 msgstr ""
 
-#: ../IdnoPlugins/Comments/templates/default/comments/public/form.tpl.php:4
+#: ./templates/default/comments/public/form.tpl.php:40
 msgid "Leave Comment"
 msgstr ""
 
